@@ -1,0 +1,11 @@
+{
+    "drinkType": "espresso",
+    "size": "medium",
+    "milk": "soy",
+    "extras": [
+        "extra shot"
+    ],
+    "name": "Roshan",
+    "timestamp": "2025-11-23T20:28:59.584900",
+    "session_id": "session_20251123_202859"
+}
