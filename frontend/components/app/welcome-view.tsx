@@ -1,19 +1,45 @@
 import { Button } from '@/components/livekit/button';
 
-function WelcomeImage() {
+function FraudAlertIcon() {
   return (
-    <svg
-      width="64"
-      height="64"
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="text-fg0 mb-4 size-16"
-    >
-      <path
-        d="M15 24V40C15 40.7957 14.6839 41.5587 14.1213 42.1213C13.5587 42.6839 12.7956 43 12 43C11.2044 43 10.4413 42.6839 9.87868 42.1213C9.31607 41.5587 9 40.7957 9 40V24C9 23.2044 9.31607 22.4413 9.87868 21.8787C10.4413 21.3161 11.2044 21 12 21C12.7956 21 13.5587 21.3161 14.1213 21.8787C14.6839 22.4413 15 23.2044 15 24ZM22 5C21.2044 5 20.4413 5.31607 19.8787 5.87868C19.3161 6.44129 19 7.20435 19 8V56C19 56.7957 19.3161 57.5587 19.8787 58.1213C20.4413 58.6839 21.2044 59 22 59C22.7956 59 23.5587 58.6839 24.1213 58.1213C24.6839 57.5587 25 56.7957 25 56V8C25 7.20435 24.6839 6.44129 24.1213 5.87868C23.5587 5.31607 22.7956 5 22 5ZM32 13C31.2044 13 30.4413 13.3161 29.8787 13.8787C29.3161 14.4413 29 15.2044 29 16V48C29 48.7957 29.3161 49.5587 29.8787 50.1213C30.4413 50.6839 31.2044 51 32 51C32.7956 51 33.5587 50.6839 34.1213 50.1213C34.6839 49.5587 35 48.7957 35 48V16C35 15.2044 34.6839 14.4413 34.1213 13.8787C33.5587 13.3161 32.7956 13 32 13ZM42 21C41.2043 21 40.4413 21.3161 39.8787 21.8787C39.3161 22.4413 39 23.2044 39 24V40C39 40.7957 39.3161 41.5587 39.8787 42.1213C40.4413 42.6839 41.2043 43 42 43C42.7957 43 43.5587 42.6839 44.1213 42.1213C44.6839 41.5587 45 40.7957 45 40V24C45 23.2044 44.6839 22.4413 44.1213 21.8787C43.5587 21.3161 42.7957 21 42 21ZM52 17C51.2043 17 50.4413 17.3161 49.8787 17.8787C49.3161 18.4413 49 19.2044 49 20V44C49 44.7957 49.3161 45.5587 49.8787 46.1213C50.4413 46.6839 51.2043 47 52 47C52.7957 47 53.5587 46.6839 54.1213 46.1213C54.6839 45.5587 55 44.7957 55 44V20C55 19.2044 54.6839 18.4413 54.1213 17.8787C53.5587 17.3161 52.7957 17 52 17Z"
-        fill="currentColor"
-      />
+    <div className="relative mb-6">
+      {/* Pulsing background */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="h-24 w-24 rounded-full bg-red-500/20 animate-pulse" />
+      </div>
+      
+      {/* Shield with alert icon (pure SVG) */}
+      <div className="relative flex items-center justify-center">
+        <svg 
+          className="h-16 w-16 text-red-600" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" 
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function LockIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+    </svg>
+  );
+}
+
+function ShieldIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
     </svg>
   );
 }
@@ -29,33 +55,62 @@ export const WelcomeView = ({
   ref,
 }: React.ComponentProps<'div'> & WelcomeViewProps) => {
   return (
-    <div ref={ref}>
-      <section className="bg-background flex flex-col items-center justify-center text-center">
-        <WelcomeImage />
+    <div ref={ref} className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="flex flex-col items-center justify-center text-center px-4 py-12">
+        <FraudAlertIcon />
 
-        <p className="text-foreground max-w-prose pt-1 leading-6 font-medium">
-          Chat live with your voice AI agent
+        {/* Bank header */}
+        <div className="mb-4">
+          <h1 className="text-3xl font-bold text-white mb-2">
+            🏦 SecureBank Fraud Alert
+          </h1>
+          <div className="flex items-center justify-center gap-2 text-sm text-slate-400">
+            <LockIcon className="h-4 w-4" />
+            <span>Automated Fraud Detection System</span>
+          </div>
+        </div>
+
+        {/* Alert message */}
+        <div className="bg-red-900/30 border border-red-700/50 rounded-lg p-4 max-w-md mb-6">
+          <p className="text-red-200 text-sm leading-relaxed">
+            <strong className="text-red-400">⚠️ Suspicious Activity Detected</strong>
+            <br />
+            Our system has flagged unusual transactions on your account. 
+            Please verify your recent activity.
+          </p>
+        </div>
+
+        {/* Main description */}
+        <p className="text-slate-300 max-w-prose leading-6 mb-2">
+          Connect with our AI fraud specialist to review your account
+        </p>
+        <p className="text-slate-500 text-sm mb-8">
+          This call is secure and encrypted • Available 24/7
         </p>
 
-        <Button variant="primary" size="lg" onClick={onStartCall} className="mt-6 w-64 font-mono">
+        {/* Start button */}
+        <Button 
+          variant="primary" 
+          size="lg" 
+          onClick={onStartCall} 
+          className="w-72 font-semibold text-lg bg-red-600 hover:bg-red-700 shadow-lg shadow-red-900/50"
+        >
           {startButtonText}
         </Button>
+
+        {/* Security badges */}
+        <div className="mt-8 flex items-center gap-6 text-xs text-slate-500">
+          <div className="flex items-center gap-2">
+            <ShieldIcon className="h-4 w-4 text-green-500" />
+            <span>256-bit Encryption</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <LockIcon className="h-4 w-4 text-blue-500" />
+            <span>PCI Compliant</span>
+          </div>
+        </div>
       </section>
 
-      <div className="fixed bottom-5 left-0 flex w-full items-center justify-center">
-        <p className="text-muted-foreground max-w-prose pt-1 text-xs leading-5 font-normal text-pretty md:text-sm">
-          Need help getting set up? Check out the{' '}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://docs.livekit.io/agents/start/voice-ai/"
-            className="underline"
-          >
-            Voice AI quickstart
-          </a>
-          .
-        </p>
-      </div>
     </div>
   );
 };
