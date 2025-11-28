@@ -38,38 +38,39 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* 🛒 GROCERY THEME - Green/Fresh Colors for In-Call UI */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.269 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: oklch(0.92 0.05 160);      /* Light mint green background */
+  --foreground: oklch(0.25 0.08 155);      /* Dark green text */
+  --card: oklch(0.98 0.02 165);            /* Almost white cards with green tint */
+  --card-foreground: oklch(0.25 0.08 155); /* Dark green card text */
+  --popover: oklch(0.95 0.04 162);         /* Light green popover */
+  --popover-foreground: oklch(0.25 0.08 155);
+  --primary: oklch(0.55 0.15 155);         /* Medium green primary */
+  --primary-foreground: oklch(0.98 0.02 165); /* Light text on primary */
+  --secondary: oklch(0.88 0.05 160);       /* Light green secondary */
+  --secondary-foreground: oklch(0.25 0.08 155);
+  --muted: oklch(0.85 0.04 162);           /* Muted green */
+  --muted-foreground: oklch(0.45 0.08 155); /* Medium green muted text */
+  --accent: oklch(0.75 0.12 158);          /* Bright green accent */
+  --accent-foreground: oklch(0.98 0.02 165);
+  --destructive: oklch(0.60 0.20 30);      /* Red for destructive actions */
+  --border: oklch(0.80 0.05 160);          /* Subtle green borders */
+  --input: oklch(0.95 0.03 162);           /* Light green inputs */
+  --ring: oklch(0.55 0.15 155);            /* Green focus ring */
+  --chart-1: oklch(0.55 0.15 155);         /* Green chart colors */
+  --chart-2: oklch(0.65 0.12 170);
+  --chart-3: oklch(0.70 0.10 145);
+  --chart-4: oklch(0.60 0.14 180);
+  --chart-5: oklch(0.75 0.08 150);
+  --sidebar: oklch(0.95 0.04 162);         /* Light green sidebar */
+  --sidebar-foreground: oklch(0.25 0.08 155);
+  --sidebar-primary: oklch(0.55 0.15 155);
+  --sidebar-primary-foreground: oklch(0.98 0.02 165);
+  --sidebar-accent: oklch(0.88 0.05 160);
+  --sidebar-accent-foreground: oklch(0.25 0.08 155);
+  --sidebar-border: oklch(0.80 0.05 160);
+  --sidebar-ring: oklch(0.55 0.15 155);
 }
 
 @theme inline {
@@ -128,26 +129,20 @@
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-name: text-shimmer;
-    background: var(--muted-foreground)
-      gradient(
-        linear,
-        100% 0,
-        0 0,
-        from(var(--muted-foreground)),
-        color-stop(0.5, var(--secondary-foreground)),
-        to(var(--muted-foreground))
-      );
-    background: var(--muted-foreground) -webkit-gradient(
-        linear,
-        100% 0,
-        0 0,
-        from(var(--muted-foreground)),
-        color-stop(0.5, var(--secondary-foreground)),
-        to(var(--muted-foreground))
-      );
+    background-color: var(--muted-foreground);
+    background-image: linear-gradient(
+      to right,
+      var(--muted-foreground),
+      var(--secondary-foreground) 50%,
+      var(--muted-foreground)
+    );
     background-repeat: no-repeat;
-    background-size: 50% 200%;
+    background-size: 50% 100%;
+    background-position: -100% 0;
     display: inline-block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   @keyframes text-shimmer {
